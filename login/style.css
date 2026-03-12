@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 * {
+=======
+*{
+>>>>>>> 05bb3eb6edbe491b78d777293df3400fab1e6710
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+<<<<<<< HEAD
 
 body {
     min-height: 100vh;
@@ -93,4 +98,20 @@ body {
     border: none;
     border-radius: 10px;
     font-size: 16px;
+=======
+div{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+
+    background-color: #f0f0f0;
+    gap: 2vh;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    margin-top: 2vh;
+>>>>>>> 05bb3eb6edbe491b78d777293df3400fab1e6710
 }

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+<<<<<<< HEAD
     font-family: Arial, sans-serif;
 }
 
@@ -105,4 +106,15 @@ body {
     font-weight: bold;
     cursor: pointer;
     margin-top: 10px;
+=======
+}
+form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    margin-top: 2vh;
+>>>>>>> 05bb3eb6edbe491b78d777293df3400fab1e6710
 }
