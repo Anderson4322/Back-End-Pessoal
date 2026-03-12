@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrativo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="pai">
+        <header>
+            <h1>Painel Administrativo</h1>
+            <button id="sair">Sair</button>
+        </header>
+        <fieldset id="cadastro">
+            <form method="post" id="cad_user">
+                <legend>Nome:</legend>
+                <input type="text" id="nome" required>
+                <legend>Email:</legend>
+                <input type="email" id="email" required>
+                <legend>senha:</legend>
+                <input type="password" id="senha" required>
+                <legend>Nivel:</legend>
+                <input type="text" id="nivel" required placeholder="Digite o nível do usuário" maxlength="1">
+                <legend>Endereço:</legend>
+                <input type="text" id="endereco" required placeholder="Digite seu endereço">
+                <legend>Telefone:</legend>
+                <input type="tel" id="telefone" required>
+                <legend>Tipo de conta:</legend>
+                <select name="Nconta" id="tipoConta" required>
+                    <option value="profissional">Profissional</option>
+                    <option value="administrativo">Administrativo</option>
+                    <option value="cliente">Cliente</option>
+                </select>
+                <button type="submit" id="confirmar">Confirmar</button>
+            </form>
+
+            <div id="vazia">
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <div id="controle_pedidos">
+                <h1>Pedidos Solicitados</h1>
+                </div>
+            <div id="show_pedido">
+
+            </div>
+            
+                
+        </fieldset>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
