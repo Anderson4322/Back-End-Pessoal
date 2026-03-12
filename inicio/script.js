@@ -47,7 +47,7 @@ window.addEventListener("load", async () => {
     valor.textContent = `Valor: R$${p.valor}`;
 
       const comentario_texto = document.createElement("p")
-    comentario_texto.textContent = `Comentario: ${p.comentario}`
+    comentario_texto.textContent = `${p.nome}: ${p.comentario}`
     
     const comentario = document.createElement("details");
     
@@ -93,7 +93,7 @@ window.addEventListener("load", async () => {
     card.appendChild(modelo);
     card.appendChild(numero_contato);
     card.appendChild(valor);
-    card.appendChild(comentario_texto);
+    comentario.appendChild(comentario_texto);
     comentario.appendChild(input_comentario);
     comentario.appendChild(enviarComentario);
     comentario.appendChild(comentario_summary);
@@ -112,24 +112,6 @@ window.addEventListener("load", async () => {
   // });
   
 });
-// enviarComentario.addEventListener('click', async()=>{
-//   const comentario = document.querySelector("#comentario");
-//   const resposta = await fetch(`http://localhost:3000/comentario/${p.id_pedido}`, {
-//       method: 'PUT',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         comentario
-//       })
-//     })
-//     if(resposta.status === 201){
-//       alert('Comentário adicionado com sucesso!');
-//       window.location.reload();
-//     } else {
-//      return alert('Erro ao adicionar comentário!');
-//     }
-// })
 
 
 

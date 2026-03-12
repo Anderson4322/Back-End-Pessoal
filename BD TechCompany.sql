@@ -27,6 +27,6 @@ descricao_problema varchar(2000) not null,
 tipoeletronico varchar(255) not null,
 modelo varchar(255) not null,
 telefone varchar(255) not null,
+comentario varchar(2000) default 'Nenhum comentario',
 valor numeric(10,2)
-comentario varchar(2000)
 )
