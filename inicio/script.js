@@ -1,3 +1,4 @@
+
 const openModalButton = document.querySelector("#openModal");
 const modal = document.querySelector("#modal");
 const closeModal = document.querySelector("#closeModal");
@@ -110,14 +111,33 @@ window.addEventListener("load", async () => {
   //   `
   // });
   
-})
+});
+// enviarComentario.addEventListener('click', async()=>{
+//   const comentario = document.querySelector("#comentario");
+//   const resposta = await fetch(`http://localhost:3000/comentario/${p.id_pedido}`, {
+//       method: 'PUT',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({
+//         comentario
+//       })
+//     })
+//     if(resposta.status === 201){
+//       alert('Comentário adicionado com sucesso!');
+//       window.location.reload();
+//     } else {
+//      return alert('Erro ao adicionar comentário!');
+//     }
+// })
+
 
 
 
 document.querySelector('form').addEventListener('submit', async(e)=>{
   e.preventDefault();
 
-  const nome = localStorage.getItem("Nome");
+  const nome = document.querySelector("#nome");
   const descricao_problema = document.querySelector('#descricao').value
   const tipoeletronico = document.querySelector('#tipoeletronico').value
   const modelo = document.querySelector('#modelo').value
@@ -151,13 +171,14 @@ document.querySelector('form').addEventListener('submit', async(e)=>{
   const cadastro = document.querySelector("#cadastro");
   const login = document.querySelector("#login");
   const h2 = document.querySelector("h2");
+  const botao_sair = document.querySelector("#sair");
   h2.appendChild(nome);
 
-  const nomeUsuario = localStorage.getItem("Nome");
-  const tipoConta = localStorage.getItem("TipoConta");
+  const nomeUsuario = localStorage.getItem("nome");
+
   
   if (nomeUsuario) {
-    nome.textContent = `${nomeUsuario}`;
+    h2.textContent = `${nomeUsuario}`;
     cadastro.remove();
     login.remove();
   }
@@ -167,10 +188,12 @@ document.querySelector('form').addEventListener('submit', async(e)=>{
   }
   //sair
   
-  const botao_sair = document.querySelector("#sair");
+  
 botao_sair.addEventListener("click", () => {
-  localStorage.removeItem("id_usuario");
-  localStorage.removeItem("Nome");
-  localStorage.removeItem("Gmail");
+  localStorage.clear();
+  // localStorage.removeItem("id_usuario");
+  // localStorage.removeItem("nome");
+  // localStorage.removeItem("gmail");
+  // localStorage.removeItem("tipoconta");
   window.location.href = "../login/index.html";
 });

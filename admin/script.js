@@ -223,14 +223,26 @@ window.addEventListener("load", async () => {
   //   `
   // });
 })
-
-
 const botao_sair = document.querySelector("#sair");
 
+const nome = document.createElement("p");
+const h2 = document.querySelector("h2");
+h2.appendChild(nome);
+
+const nomeUsuario = localStorage.getItem("nome");
+const tipoConta = localStorage.getItem("tipoconta");
+
+if (nomeUsuario) {
+  nome.textContent = `${nomeUsuario}`;
+}
+else {
+  nome.textContent = "Bem-vindo, visitante";
+  sair.remove()
+}
+//sair
+
 botao_sair.addEventListener("click", () => {
-  localStorage.removeItem("id_usuario");
-  localStorage.removeItem("Nome");
-  localStorage.removeItem("Gmail");
+  localStorage.clear();
   window.location.href = "../login/index.html";
 });
 

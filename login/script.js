@@ -18,9 +18,8 @@
     if (resposta.status == 200) {
       const usuarios = await resposta.json();
       localStorage.setItem("id_usuario", usuarios.id_usuario);
-      localStorage.setItem("Nome", usuarios.nome);
-      localStorage.setItem("tipoconta", usuarios.tipoConta);
-      localStorage.setItem("Gmail", usuarios.email);
+      localStorage.setItem("nome", usuarios.nome);
+      localStorage.setItem("tipoconta", usuarios.tipoconta);
       if (usuarios.tipoconta === 'administrativo') {
         return (window.location.href = "../admin/index.html");
       }
