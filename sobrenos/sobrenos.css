@@ -1,3 +1,9 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 @font-face {
     font-family: "CodecPro";
     src: url("./fonts/CodecPro-Regular.woff2") format("woff2");
@@ -15,7 +21,7 @@ body{
     background:#e9e9e9;
 }
 
-/* HEADER */
+
 
 .topo{
     display:flex;
@@ -26,10 +32,12 @@ body{
 }
 
 #logo{
-    width:160px;
+    width: 170px;
 }
 
-/* MENU */
+#login{
+    width: 90px;
+}
 
 .lista{
     display:flex;
@@ -46,13 +54,13 @@ body{
     color:#ffd000;
 }
 
-/* PERFIL */
+
 
 .perfil img{
     width:35px;
 }
 
-/* SOBRE */
+
 
 .sobre{
     text-align:center;
@@ -70,7 +78,7 @@ body{
     color:#0d1aa6;
 }
 
-/* DIFERENCIAL */
+
 
 .diferencial{
     text-align:center;
@@ -89,7 +97,7 @@ body{
     margin-top:40px;
 }
 
-/* CARDS */
+
 
 .card{
     width:220px;
