@@ -1,0 +1,66 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: "CodecPro";
+    src: url("./fonts/CodecPro-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "CodecPro";
+    src: url("./fonts/CodecPro-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+}
+
+body{
+    margin: 0;
+    height: 100vh;
+    background-image: url("Design\ sem\ nome.svg");
+    background-size: cover;      
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    width: 100%;
+}
+ul{
+  display: flex;
+  gap: 90px;
+  list-style: none;
+}
+
+li{
+  display: flex;
+ 
+}
+
+a{
+    color: white;
+     font-family: "CodecPro", sans-serif;
+}
+
+#logo{
+    width: 160px;
+
+}
+
+#btn_logout{
+    color: #f4f4f4;
+}
