@@ -12,6 +12,7 @@
     <div id="pai">
         <header>
             <h1>Painel Administrativo</h1>
+            <h2>Bem-vindo, Administrador: </h2>
             <button id="sair">Sair</button>
             <button id="openModal">
                Adicionar usuario ➕
@@ -20,7 +21,10 @@
 
 
         <dialog id="modal">
-            <button id="closeModal">❌</button>
+            <div id="move_button">
+
+                <button id="closeModal">❌</button>
+            </div>
             <form method="post" id="cad_user">
                 <legend>Nome:</legend>
                 <input type="text" id="nome" required placeholder="Digite o nome do usuario">

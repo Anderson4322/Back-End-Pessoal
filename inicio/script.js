@@ -1,3 +1,4 @@
+
 const openModalButton = document.querySelector("#openModal");
 const modal = document.querySelector("#modal");
 const closeModal = document.querySelector("#closeModal");
@@ -46,7 +47,7 @@ window.addEventListener("load", async () => {
     valor.textContent = `Valor: R$${p.valor}`;
 
       const comentario_texto = document.createElement("p")
-    comentario_texto.textContent = `Comentario: ${p.comentario}`
+    comentario_texto.textContent = `${p.nome}: ${p.comentario}`
     
     const comentario = document.createElement("details");
     
@@ -92,7 +93,7 @@ window.addEventListener("load", async () => {
     card.appendChild(modelo);
     card.appendChild(numero_contato);
     card.appendChild(valor);
-    card.appendChild(comentario_texto);
+    comentario.appendChild(comentario_texto);
     comentario.appendChild(input_comentario);
     comentario.appendChild(enviarComentario);
     comentario.appendChild(comentario_summary);
@@ -110,14 +111,15 @@ window.addEventListener("load", async () => {
   //   `
   // });
   
-})
+});
+
 
 
 
 document.querySelector('form').addEventListener('submit', async(e)=>{
   e.preventDefault();
 
-  const nome = localStorage.getItem("Nome");
+  const nome = document.querySelector("#nome");
   const descricao_problema = document.querySelector('#descricao').value
   const tipoeletronico = document.querySelector('#tipoeletronico').value
   const modelo = document.querySelector('#modelo').value
@@ -151,13 +153,14 @@ document.querySelector('form').addEventListener('submit', async(e)=>{
   const cadastro = document.querySelector("#cadastro");
   const login = document.querySelector("#login");
   const h2 = document.querySelector("h2");
+  const botao_sair = document.querySelector("#sair");
   h2.appendChild(nome);
 
-  const nomeUsuario = localStorage.getItem("Nome");
-  const tipoConta = localStorage.getItem("TipoConta");
+  const nomeUsuario = localStorage.getItem("nome");
+
   
   if (nomeUsuario) {
-    nome.textContent = `${nomeUsuario}`;
+    h2.textContent = `${nomeUsuario}`;
     cadastro.remove();
     login.remove();
   }
@@ -167,10 +170,12 @@ document.querySelector('form').addEventListener('submit', async(e)=>{
   }
   //sair
   
-  const botao_sair = document.querySelector("#sair");
+  
 botao_sair.addEventListener("click", () => {
-  localStorage.removeItem("id_usuario");
-  localStorage.removeItem("Nome");
-  localStorage.removeItem("Gmail");
+  localStorage.clear();
+  // localStorage.removeItem("id_usuario");
+  // localStorage.removeItem("nome");
+  // localStorage.removeItem("gmail");
+  // localStorage.removeItem("tipoconta");
   window.location.href = "../login/index.html";
 });

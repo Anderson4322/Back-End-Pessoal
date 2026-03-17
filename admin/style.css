@@ -20,13 +20,11 @@ header{
     font-size: 1em;
     cursor: pointer;
 }
-#closeModal{
-  padding: 1vh;
-}
 #modal{
-    width: 100%;
-    
+    width: 65vh;
 }
+
+
 #closeModal:hover{
     background-color: gray;
     transition: 0.2s ease;
@@ -38,11 +36,10 @@ header{
 }
 form{
     width: 60vh;
-    height: 100%;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     background-color: rgb(231, 231, 231);
-   
     padding: 2vh;
     gap: 4px;
 }
@@ -52,7 +49,7 @@ form{
     border: none;
     font-size: 1.5em;
     cursor: pointer;
-    margin: 2vh;
+   
 }
 #nome, #email, #senha, #nivel, #telefone, #endereco{
     width: 100%;
