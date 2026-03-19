@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Company - Conserto</title>
+    <link rel="stylesheet" href="conserto.css" />
+  </head>
+  <body>
+    <header class="menu-superior">
+      <img src="logo.svg" id="logo" alt="Logo" />
+      <nav>
+        <ul class="lista-links">
+          <li><a href="sobre.html">Sobre nós</a></li>
+          <li><a href="conserto.html">Conserto</a></li>
+        </ul>
+      </nav>
+      <div class="logaut">
+        <img src="logaut.svg" alt="Perfil" class="foto-mini" />
+      </div>
+    </header>
+
+    <main class="area-principal">
+      <h1 class="titulo-pagina">CONSERTO DE ELETRÔNICOS</h1>
+
+      <button id="abrirMod" data-modal="modal-1">+ Publicar Problema</button>
+
+      <section class="grade-posts">
+        <!-- <div class="caixa-problema">
+          <div class="cabecalho-post">
+            <img src="" alt="usuario" class="foto-perfil" />
+            <div class="texto-usuario">
+              <h3 id="mod">Modelo</h3>
+              <p id="p1">Nome</p>
+              <h5>telefone</h5>
+            </div>
+          </div>
+          <div class="corpo-post">
+            <img src="" alt="aparelho" class="foto-post" />
+            <h6>descricao</h6>
+          </div>
+          <p id="p2">Categoria:</p>
+          <h3 id="valor1"> Valor:</h3>
+          <!-- <div class="resposta-tecnico">
+            <img src="foto-tecnico.jpg" alt="Técnico" class="foto-mini" />
+            <div class="texto-tecnico">
+              <b>Carlos Tech</b>
+              <p class="subtitulo-tecnico">Técnico cadastrado</p>
+              <input type="text" />
+            </div>
+            <button class="botao-msg">Enviar Mensagem</button>
+          </div> -->
+        <!-- </div> -->
+      </section>
+    </main>
+    <dialog id="modal-1">
+      <div id="pai">
+        <form id="formulario">
+          <div id="legenda">
+            <h2>Publicar Problema</h2>
+          </div>
+          <div id="corpo">
+          <label for="nome">Nome:</label>
+          <input
+            type="text"
+            id="nome"
+            required
+            placeholder="Digite seu nome completo"
+          />
+
+          <label for="descricao">Descrição:</label>
+          <input
+            type="text"
+            id="descricao"
+            required
+            placeholder="Descreva o problema"
+          />
+
+          <label for="modelo">Modelo:</label>
+          <input
+            type="text"
+            id="modelo"
+            required
+            placeholder="Digite o modelo do aparelho"
+          />
+          <label for="telefone">telefone:</label>
+          <input
+            type="text"
+            id="telefone"
+            placeholder="Digite o numero de telefone"
+          />
+
+          <label for="tipoeletronico">Tipo de Eletrônico:</label>
+          <select id="tipoeletronico" required>
+            <option value="">Selecione o tipo</option>
+            <option value="smartphone">Smartphone</option>
+            <option value="computador">Computador</option>
+            <option value="console">Console</option>
+          </select>
+
+          <label for="valor">Valor:</label>
+          <input
+            type="number"
+            id="valor"
+            required
+            placeholder="Digite o valor do serviço"
+          />
+          <details id="comentario">
+            <summary>Detalhes do Problema</summary>
+            <p>Descreva o problema com mais detalhes aqui.</p>
+          </details>
+
+          <div class="container-botoes">
+            <button type="button" id="sair" data-modal="modal-1">Voltar</button>
+
+            <button type="submit" id="confirmar">Enviar</button>
+          </div>
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <script src="./conserto.js"></script>
+  </body>
+</html>

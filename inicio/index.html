@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inicio</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="pai">
+        <header>
+            <h1>Bem vindo ao sistema TechCompany </h1>
+            <h2></h2>
+            <a href="../cadastro/index.html"> <button id="cadastro">Cadastro</button></a>
+            <a href="../login/index.html"> <button id="login">login</button></a>
+            <button id="sair">Sair</button>
+
+        </header>
+
+        <button id="openModal">Solicitar Serviço</button>
+
+        <dialog id="modal">
+            <button id="closeModal">❌</button>
+            <form id="formulario">
+
+                <legend>Faça seu cadastro para solicitar um serviço</legend>
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required placeholder="Digite seu nome">
+
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" required placeholder="Digite sua descrição do problema">
+
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" required placeholder="Digite o modelo do eletrônico">
+
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" required placeholder="Digite seu número de telefone">
+
+                <label for="tipo">Tipo de Eletrônico:</label>
+                <select id="tipoeletronico" required>
+                    <option value="smartphone">Smartphone</option>
+                    <option value="tablet">Tablet</option>
+                    <option value="notebook">Computador</option>
+                    <option value="console">Console</option>
+
+                </select>
+
+                <button type="submit" id="confirmar">Confirmar</button>
+
+
+
+            </form>
+
+        </dialog>
+
+
+        <div id="vazia">
+
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
