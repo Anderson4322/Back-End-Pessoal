@@ -8,17 +8,27 @@
   </head>
   <body>
     <header class="menu-superior">
-      <img src="logo.svg" id="logo" alt="Logo" />
-      <nav>
-        <ul class="lista-links">
-          <li><a href="sobre.html">Sobre nós</a></li>
-          <li><a href="conserto.html">Conserto</a></li>
-        </ul>
-      </nav>
-      <div class="logaut">
-        <img src="logaut.svg" alt="Perfil" class="foto-mini" />
-      </div>
-    </header>
+  <div class="header-container"> <img src="LOGOOFC.svg" id="logo" alt="Logo" />
+    
+    <nav>
+      <ul class="lista-links">
+        <li><a href="sobre.html">Sobre nós</a></li>
+        <li><a href="conserto.html">Conserto</a></li>
+      </ul>
+    </nav>
+    <div class="acoes">
+  <!-- MENU HAMBURGUER -->
+  <div class="menu-hamburguer">
+    <button id="btn-menu">☰</button>
+
+    <div class="dropdown" id="dropdown-menu">
+      <button class="dropdown-item">Cadastrar</button>
+      <button class="dropdown-item">Logar</button>
+    </div>
+  </div>
+     <button class="btn-sair">Sair</button>
+  </div>
+</header>
 
     <main class="area-principal">
       <h1 class="titulo-pagina">CONSERTO DE ELETRÔNICOS</h1>
@@ -105,10 +115,6 @@
             required
             placeholder="Digite o valor do serviço"
           />
-          <details id="comentario">
-            <summary>Detalhes do Problema</summary>
-            <p>Descreva o problema com mais detalhes aqui.</p>
-          </details>
 
           <div class="container-botoes">
             <button type="button" id="sair" data-modal="modal-1">Voltar</button>

@@ -9,6 +9,21 @@ closeButtons.addEventListener('click', () =>{
 modal.close(); //fechar modal 
 });
 
+//menu hamburguer
+const btnMenu = document.getElementById("btn-menu");
+const dropdown = document.getElementById("dropdown-menu");
+
+btnMenu.addEventListener("click", () => {
+  dropdown.classList.toggle("ativo");
+});
+
+/* fechar clicando fora */
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".menu-hamburguer")) {
+    dropdown.classList.remove("ativo");
+  }
+});
+
 const btn = document.querySelector("#confirmar");
 const input = document.querySelectorAll("input");
 const select = document.querySelector("select");
