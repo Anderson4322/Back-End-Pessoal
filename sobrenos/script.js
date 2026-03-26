@@ -5,3 +5,7 @@ inicio.addEventListener('click', () => {
     window.location.replace("../Homepage/pagina_inicial.html");
 });
 
+concerto.addEventListener('click', () => {
+    window.location.replace("../conceto/conceto.html");
+});
+

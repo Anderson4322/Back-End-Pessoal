@@ -3,7 +3,6 @@ const openModal = document.querySelector("#openModal");
 const closeModal = document.querySelector("#closeModal");
 const modal = document.querySelector("#modal");
 
-
 openModal.addEventListener("click", () => {
   modal.showModal();
 });

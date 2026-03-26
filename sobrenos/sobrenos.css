@@ -32,6 +32,9 @@ button:hover{
     color:#ffffffa0;
 }
 
+
+
+
 .topo{
     display:flex;
     align-items:center;
@@ -51,7 +54,7 @@ button:hover{
 .lista{
     display:flex;
     gap: 50px;
-    list-style:none;
+
 }
 
 .lista a{

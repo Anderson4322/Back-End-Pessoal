@@ -3,6 +3,8 @@ import cors from "cors";
 import sql from "./database.js";
 import { CriarHash, CompararHash } from "./utilits.js";
 
+
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -19,14 +21,13 @@ app.get("/pedidos", async (req, res) => {
 });
 
 // Rota para detalhes de um curso específico
+
 app.get("/pedidos/:id", async (req, res) => {
   const { id } = req.params;
 
   const curso = await sql`SELECT * FROM pedidos WHERE id_pedido = ${id}`;
-  res.json(curso[0]);
-
-});
-
+}
+)
 // Login de usuário
 app.post("/usuarios/login", async (req, res) => {
   const { email, senha } = req.body;
@@ -47,10 +48,24 @@ app.post("/usuarios/login", async (req, res) => {
 app.post("/admin/cadastro", async (req, res) => {
   const { nome, email, senha, telefone, endereco, tipoconta, nivel } = req.body;
   await sql`insert into usuarios( nome, tipoconta, endereco,email,senha,telefone,nivel) values (${nome}, ${tipoconta}, ${endereco}, ${email}, ${senha}, ${telefone}, ${nivel})`;
+  const usuario =
+    await sql`select * from usuarios where email = ${email} and senha = ${senha}`;
+  if (usuario[0]) {
+    return res.status(200).json(usuario[0]);
+  }
+  return res.status(401).json("Usuario ou senha incorretos");
+});
+
+
+// Cadastro de usuário/admin
+app.post("/admin/cadastro", async (req, res) => {
+  const { nome, email, senha, telefone, endereco, nivel, tipoconta } = req.body;
+  await sql`insert into usuarios( nome, tipoconta, endereco,email,senha, nivel, telefone) values (${nome}, ${tipoconta}, ${endereco}, ${email}, ${senha}, ${nivel}, ${telefone})`;
   return res.status(200).json("cadastrado");
 });
 
 // Cadastro de usuário
+
 app.post('/cadastro/user', async (req, res) => {
   const { nome, email, senha, endereco } = req.body;
 
@@ -65,25 +80,30 @@ app.post('/cadastro/user', async (req, res) => {
   }
 })
 
-// Adicionar novo pedido
 app.post("/cad_pedidos", async (req, res) => {
   const { nome,
     tipoeletronico,
     descricao_problema,
     modelo,
     telefone,
+
   } = req.body;
+
   await sql`INSERT INTO pedidos (nome, descricao_problema, tipoeletronico, modelo, telefone, valor) VALUES (${nome}, ${descricao_problema}, ${tipoeletronico}, ${modelo}, ${telefone},0)`;
-  return res.status(201).json({ alert: "Pedido adicionado com sucesso!" });
+  if (res.status(201)) {
+    return res.status(201).json("Pedido criado com sucesso");
+  }
+  return res.status(500).json("Erro ao criar pedido");
 });
 
 // Solicitar certificado
 
-app.post("/comentario/:id", async (req, res) => {
+
+app.put("/comentario/:id", async (req, res) => {
   const { id } = req.params;
   const { comentario } = req.body;
 
-  await sql`insert into pedidos (comentario) values (${comentario}) where id_pedido = ${id}`;
+  await sql`update pedidos set comentario = ${comentario} where id_pedido = ${id}`;
 
   return res.status(201).json("comentario adicionado");
 });
@@ -102,7 +122,10 @@ app.delete("/deletar/:id", async (req, res) => {
 app.delete("/del_pedido/:id", async (req, res) => {
   try {
     const { id } = req.params;
+
     await sql`delete from pedidos where id_produtos = ${id} `;
+
+
     return res.status(200).json("Pedido deletado");
   } catch (error) {
     res.status(409).json("Pedido não pode ser deletado");
@@ -137,8 +160,6 @@ app.put("/alt_user/:id", async (req, res) => {
   return res.status(201).json("alterado");
 }
 );
-
-
 
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000 🚀");
