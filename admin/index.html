@@ -38,48 +38,14 @@
               
                 <legend>Endereço:</legend>
                 <input type="text" id="endereco" required placeholder="Digite seu endereço">
-                <legend>Telefone:</legend>
-                <input type="tel" id="telefone" required placeholder="Digite seu telefone">
-                <legend>Tipo de conta:</legend>
-                <select name="Nconta" id="tipoConta" required>
-                    <option value="profissional">Profissional</option>
-                    <option value="administrativo">Administrativo</option>
-                    <option value="cliente">Cliente</option>
-                </select>
+                    <legend>Nivel de acesso:</legend> 
+                    <input type="number" maxlength="1" id="nivel" required placeholder="Digite o nivel de acesso do usuario">  
                 <button type="submit" id="confirmar">Confirmar</button>
             </form>
 
             
         </dialog>
-<!-- //modal de edição de usuário -->
-        <dialog id="modal2">
-            <div id="move_button">
 
-                <button id="closeModal2">❌</button>
-            </div>
-            <form method="post" id="cad_user">
-                <legend>Nome:</legend>
-                <input type="text" id="nome1" required placeholder="Digite o nome do usuario">
-                <legend>Email:</legend>
-                <input type="email" id="email1" required placeholder="Digite o email do usuario">
-                <legend>senha:</legend>
-                <input type="password" id="senha1" required placeholder="Digite a senha do usuario">
-        
-                <legend>Endereço:</legend>
-                <input type="text" id="endereco1" required placeholder="Digite seu endereço">
-                <legend>Telefone:</legend>
-                <input type="tel" id="telefone1" required placeholder="Digite seu telefone">
-                <legend>Tipo de conta:</legend>
-                <select name="Nconta" id="tipoConta1" required>
-                    <option value="profissional">Profissional</option>
-                    <option value="administrativo">Administrativo</option>
-                    <option value="cliente">Cliente</option>
-                </select>
-                <button type="submit" id="confirmar">Confirmar</button>
-            </form>
-
-            
-        </dialog>
         <h1>Usuários Cadastrados</h1>
         <div id="vazia">
         </div>

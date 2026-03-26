@@ -1,14 +1,13 @@
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-@font-face {
+/* @font-face {
   font-family: "CodecPro";
   src: url("../fonts/CodecPro-Regular.woff2");
-}
+} */
 
 .menu-hamburguer {
   position: relative;

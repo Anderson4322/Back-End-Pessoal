@@ -38,7 +38,6 @@ document.querySelector('form').addEventListener("submit", async (e) => {
   const telefone = document.querySelector("#telefone").value;
   // const comentario = document.querySelector("#comentario").value;
   console.log(nome, descricao, tipoeletronico, modelo);
- 
   const resposta = await fetch("http://localhost:3000/cad_pedidos", {
     method: "POST",
     headers: { "Content-Type": "application/JSON" },
@@ -51,7 +50,9 @@ document.querySelector('form').addEventListener("submit", async (e) => {
     }),
   });
   if(resposta.status == 200){
-    return window.location.reload();
+    window.location.reload();
+    return alert("Pedido cadastrado com sucesso!")
+   
   }else{
     alert("Erro ao cadastro de pedido")
   }
@@ -124,19 +125,20 @@ btnSair.addEventListener("click", () => {
 });
 
 const btnCadastrar = document.querySelector("#cadastrar");
+
 btnCadastrar.addEventListener("click", () => {
   window.location.href = "../cadastro/cadastro.html";
 });
+btnCadastrar.style.pointerEvents = "none";
 const btnLogar = document.querySelector("#logar");
 btnLogar.addEventListener("click", () => {
   window.location.href = "../login/index.html";
 });
+btnLogar.style.pointerEvents = "none";
 
 const nomeUsuario = localStorage.getItem("nome");
 const nivel = localStorage.getItem("nivel");
 
 if (nivel == 2) {
   console.log("Bem vindo Tecnico");
-}else{
-  comentario.remove();
 }

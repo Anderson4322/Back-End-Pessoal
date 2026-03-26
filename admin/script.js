@@ -71,7 +71,6 @@ window.addEventListener("load", async () => {
         const nome = prompt("Digite o novo nome do usuário:", usuario.nome);
         const email = prompt("Digite o novo email do usuário:", usuario.email);
         const endereco = prompt("Digite o novo endereço do usuário:", usuario.endereco);
-        const telefone = prompt("Digite o novo telefone do usuário:", usuario.telefone);
         const nivel = prompt("Digite o novo nível do usuário:", usuario.nivel);
 
         const resposta = await fetch(`http://localhost:3000/alt_user/${usuario.id_usuario}`, {
@@ -84,7 +83,6 @@ window.addEventListener("load", async () => {
                 email,
                 nivel,
                 endereco,
-                telefone
 
                 
             })
@@ -154,7 +152,7 @@ window.addEventListener("load", async () => {
     
     editar.addEventListener('click', async()=>{
         const nome = prompt("Digite o novo nome do usuário:", p.nome);
-        const descricao = prompt("Digite o novo email do usuário:", p.descricao_problema);
+        const descricao = prompt("Digite o novo email do usuário:", p.descricao);
         const tipoeletronico = prompt("Digite a nova senha do usuário:", p.tipoeletronico);
         const modelo = prompt("Digite o novo endereço do usuário:", p.modelo);
         const telefone = prompt("Digite o novo telefone do usuário:", p.telefone);
@@ -253,11 +251,9 @@ botao_sair.addEventListener("click", () => {
 document.querySelector("form").addEventListener('submit', async(e)=>{
   e.preventDefault();
   const nome = document.querySelector("#nome").value;
-  const tipoconta = document.querySelector("#tipoConta").value;
   const email = document.querySelector("#email").value;
   const senha = document.querySelector("#senha").value;
   const endereco = document.querySelector("#endereco").value;
-  const telefone = document.querySelector("#telefone").value;
   const nivel = document.querySelector("#nivel").value;
 
   const resposta = await fetch("http://localhost:3000/admin/cadastro", {
@@ -267,11 +263,9 @@ document.querySelector("form").addEventListener('submit', async(e)=>{
     },  
     body: JSON.stringify({
       nome,
-      tipoconta,
       email,
       senha,
       endereco,
-      telefone,
       nivel
     })
   })

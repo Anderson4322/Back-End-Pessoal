@@ -3,8 +3,6 @@ import cors from "cors";
 import sql from "./database.js";
 import { CriarHash, CompararHash } from "./utilits.js";
 
-
-
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -37,34 +35,28 @@ app.post("/usuarios/login", async (req, res) => {
   if (usuario[0].length !== 0) {
     const senhaValida = await CompararHash(senha, usuario[0].senha);
     if (senhaValida) {
-      return res.status(200).json({id_usuario: usuario[0].id_usuario, nome: usuario[0].nome, nivel: usuario[0].nivel});
+      return res.status(200).json({ id_usuario: usuario[0].id_usuario, nome: usuario[0].nome, nivel: usuario[0].nivel });
     }
     return res.status(401).json("Senha incorreta");
   }
   return res.status(401).json("Erro ao cadastrar usuário");
 });
 
-// Cadastro de usuário/admin
-app.post("/admin/cadastro", async (req, res) => {
-  const { nome, email, senha, telefone, endereco, tipoconta, nivel } = req.body;
-  await sql`insert into usuarios( nome, tipoconta, endereco,email,senha,telefone,nivel) values (${nome}, ${tipoconta}, ${endereco}, ${email}, ${senha}, ${telefone}, ${nivel})`;
-  const usuario =
-    await sql`select * from usuarios where email = ${email} and senha = ${senha}`;
-  if (usuario[0]) {
-    return res.status(200).json(usuario[0]);
+// Cadastro de usuário Admin
+
+app.post('/admin/cadastro', async (req, res) => {
+  const { nome, email, senha,endereco, nivel} = req.body;
+
+  const hash = await CriarHash(senha, 10)
+
+  await sql`insert into usuarios( nome,endereco,email,senha,nivel) values (${nome}, ${endereco}, ${email}, ${hash}, ${nivel})`;
+
+  if (res.status(200)) {
+    return res.status(200).json("Usuário criado com sucesso");
+  } else {
+    return res.status(500).json("Erro ao cadastrar usuário");
   }
-  return res.status(401).json("Usuario ou senha incorretos");
-});
-
-
-// Cadastro de usuário/admin
-app.post("/admin/cadastro", async (req, res) => {
-  const { nome, email, senha, telefone, endereco, nivel, tipoconta } = req.body;
-  await sql`insert into usuarios( nome, tipoconta, endereco,email,senha, nivel, telefone) values (${nome}, ${tipoconta}, ${endereco}, ${email}, ${senha}, ${nivel}, ${telefone})`;
-  return res.status(200).json("cadastrado");
-});
-
-// Cadastro de usuário
+})
 
 app.post('/cadastro/user', async (req, res) => {
   const { nome, email, senha, endereco } = req.body;
@@ -144,7 +136,7 @@ app.put("/alterar/:id", async (req, res) => {
     telefone,
     valor } = req.body;
 
-  await sql`UPDATE pedidos SET nome=${nome}, descricao_problema=${descricao}, tipoeletronico=${tipoeletronico}, modelo=${modelo}, telefone=${telefone}, valor=${valor} WHERE id_pedido = ${id};`;
+  await sql`UPDATE pedidos SET nome=${nome}, descricao=${descricao}, tipoeletronico=${tipoeletronico}, modelo=${modelo}, telefone=${telefone}, valor=${valor} WHERE id_produtos = ${id};`;
   return res.status(201).json("alterado");
 });
 
@@ -153,10 +145,11 @@ app.put("/alt_user/:id", async (req, res) => {
   const { id } = req.params;
   const { nome,
     email,
-    tipoconta
+    endereco,
+    nivel
   } = req.body;
 
-  await sql`UPDATE usuarios SET nome=${nome}, email=${email}, tipoconta=${tipoconta} WHERE id_usuario = ${id};`;
+  await sql`UPDATE usuarios SET nome=${nome}, email=${email}, endereco=${endereco}, nivel=${nivel} WHERE id_usuario = ${id};`;
   return res.status(201).json("alterado");
 }
 );

@@ -8,7 +8,7 @@ btnSobre.addEventListener('click', () => {
     window.location.replace("../sobrenos/sobrenos.html"); 
 });
 concerto.addEventListener('click', () => {
-    window.location.replace("../conserto/concerto.html");
+    window.location.replace("../concerto/conserto.html");
 });
 
 
