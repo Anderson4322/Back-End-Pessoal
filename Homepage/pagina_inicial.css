@@ -1,0 +1,100 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: "CodecPro";
+    src: url("./fonts/CodecPro-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "CodecPro";
+    src: url("./fonts/CodecPro-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+}
+
+body{
+    margin: 0;
+    height: 100vh;
+    background-image: url("Design\ sem\ nome.svg");
+    background-size: cover;      
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+#sobrenos, #os, #btn_logout, #cadastro, #login{
+    color: #000000;
+    margin-bottom: 3vh;
+    background-color: rgba(255,255,255,0.1);
+    width: 200px;
+    height: 34px;
+    font-size: 16px;
+    font-family: "CodecPro", sans-serif;
+    font-weight: bold;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    
+}
+ #cadastro, #login{
+    color: #000000;
+    margin-bottom: 3vh;
+    margin-right: 2vh;
+    background-color: rgba(255,255,255,0.1);
+    width: 140px;
+    height: 34px;
+    font-size: 16px;
+    font-family: "CodecPro", sans-serif;
+    font-weight: bold;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    
+}
+
+#btn_logout:hover, #sobrenos:hover, #os:hover, #cadastro:hover, #login:hover{
+    background-color: #2563EB;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+a{
+    color: white;
+     font-family: "CodecPro", sans-serif;
+}
+
+#logo{
+    width: 170px;
+    height: 130px;
+
+}
+
+
+#nome-usuario{
+    color: #f4f4f4;
+    font-family: "CodecPro", sans-serif;
+    font-weight: bold;
+    margin-left: 50vh;
+    margin-bottom: 3vh;
+}
