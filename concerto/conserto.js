@@ -1,5 +1,6 @@
 const openButtons = document.querySelector('#abrirMod'); 
 const modal = document.querySelector("#modal-1"); 
+const nomeUsuario = localStorage.getItem("nome");
 openButtons.addEventListener("click", () => {  
 modal.showModal(); //show ou showModal 
 }); 
@@ -49,14 +50,25 @@ document.querySelector('form').addEventListener("submit", async (e) => {
         telefone
     }),
   });
-  if(resposta.status == 200){
+  if(resposta.status == 201){
     window.location.reload();
     return alert("Pedido cadastrado com sucesso!")
    
   }else{
     alert("Erro ao cadastro de pedido")
   }
+
 });
+const span = document.querySelector("#span");
+const closeSpan = document.querySelector("#closeSpan");
+closeSpan.addEventListener("click", () => {
+  span.close();
+  window.location.replace("../login/index.html");
+});
+
+if(!nomeUsuario){
+  span.showModal();
+}
 
 
 
@@ -136,7 +148,7 @@ btnLogar.addEventListener("click", () => {
 });
 btnLogar.style.pointerEvents = "none";
 
-const nomeUsuario = localStorage.getItem("nome");
+
 const nivel = localStorage.getItem("nivel");
 
 if (nivel == 2) {

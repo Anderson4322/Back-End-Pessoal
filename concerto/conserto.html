@@ -1,41 +1,43 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tech Company - Conserto</title>
-    <link rel="stylesheet" href="conserto.css" />
-  </head>
-  <body>
-    <header class="menu-superior">
-  <div class="header-container"> <img src="LOGOOFC.svg" id="logo" alt="Logo" />
-  
-    <nav>
-      <ul class="lista-links">
-        <li><a href="../Sobrenos/sobrenos.html">Sobre nós</a></li>
-      </ul>
-    </nav>
-    <div class="acoes">
-  <!-- MENU HAMBURGUER -->
-  <div class="menu-hamburguer">
-    <button id="btn-menu">☰</button>
 
-    <div class="dropdown" id="dropdown-menu">
-      <button class="dropdown-item" id="cadastrar">Cadastrar</button>
-      <button class="dropdown-item" id="logar">Logar</button>
-    </div>
-  </div>
-     <button id="btn-sair">Voltar</button>
-  </div>
-</header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Company - Conserto</title>
+  <link rel="stylesheet" href="conserto.css" />
+</head>
 
-    <main class="area-principal">
-      <h1 class="titulo-pagina">CONSERTO DE ELETRÔNICOS</h1>
+<body>
+  <header class="menu-superior">
+    <div class="header-container"> <img src="LOGOOFC.svg" id="logo" alt="Logo" />
 
-      <button id="abrirMod" data-modal="modal-1">+ Publicar Problema</button>
+      <nav>
+        <ul class="lista-links">
+          <li><a href="../Sobrenos/sobrenos.html">Sobre nós</a></li>
+        </ul>
+      </nav>
+      <div class="acoes">
+        <!-- MENU HAMBURGUER -->
+        <div class="menu-hamburguer">
+          <button id="btn-menu">☰</button>
 
-      <section class="grade-posts">
-        <!-- <div class="caixa-problema">
+          <div class="dropdown" id="dropdown-menu">
+            <button class="dropdown-item" id="cadastrar">Cadastrar</button>
+            <button class="dropdown-item" id="logar">Logar</button>
+          </div>
+        </div>
+        <button id="btn-sair">Voltar</button>
+      </div>
+  </header>
+
+  <main class="area-principal">
+    <h1 class="titulo-pagina">CONSERTO DE ELETRÔNICOS</h1>
+
+    <button id="abrirMod" data-modal="modal-1">+ Publicar Problema</button>
+
+    <section class="grade-posts">
+      <!-- <div class="caixa-problema">
           <div class="cabecalho-post">
             <img src="" alt="usuario" class="foto-perfil" />
             <div class="texto-usuario">
@@ -59,45 +61,27 @@
             </div>
             <button class="botao-msg">Enviar Mensagem</button>
           </div> -->
-        <!-- </div> -->
-      </section>
-    </main>
-    <dialog id="modal-1">
-      <div id="pai">
-        <form id="formulario">
-          <div id="legenda">
-            <h2>Publicar Problema</h2>
-          </div>
-          <div id="corpo">
+      <!-- </div> -->
+    </section>
+  </main>
+  <dialog id="modal-1">
+    <div id="pai">
+      <form id="formulario">
+        <div id="legenda">
+          <h2>Publicar Problema</h2>
+        </div>
+        <div id="corpo">
           <label for="nome">Nome:</label>
-          <input
-            type="text"
-            id="nome"
-            required
-            placeholder="Digite seu nome completo"
-          />
+          <input type="text" id="nome" required placeholder="Digite seu nome completo" />
 
           <label for="descricao">Descrição:</label>
-          <input
-            type="text"
-            id="descricao"
-            required
-            placeholder="Descreva o problema"
-          />
+          <input type="text" id="descricao" required placeholder="Descreva o problema" />
 
           <label for="modelo">Modelo:</label>
-          <input
-            type="text"
-            id="modelo"
-            required
-            placeholder="Digite o modelo do aparelho"
-          />
+          <input type="text" id="modelo" required placeholder="Digite o modelo do aparelho" />
+
           <label for="telefone">telefone:</label>
-          <input
-            type="text"
-            id="telefone"
-            placeholder="Digite o numero de telefone"
-          />
+          <input type="text" id="telefone" placeholder="Digite o numero de telefone" />
 
           <label for="tipoeletronico">Tipo de Eletrônico:</label>
           <select id="tipoeletronico" required>
@@ -120,10 +104,18 @@
 
             <button type="submit" id="confirmar">Enviar</button>
           </div>
-          </div>
-        </form>
-      </div>
-    </dialog>
-    <script src="./conserto.js"></script>
-  </body>
+        </div>
+      </form>
+    </div>
+
+  </dialog>
+
+  <dialog id="span">
+    <button id="closeSpan">❌</button>
+    <h1>Ops.. parece que você não tem login</h1>
+    
+  </dialog>
+  <script src="./conserto.js"></script>
+</body>
+
 </html>

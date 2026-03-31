@@ -67,13 +67,13 @@ app.post('/cadastro/user', async (req, res) => {
 app.post("/cad_pedidos", async (req, res) => {
   const { nome,
     tipoeletronico,
-    descricao_problema,
+    descricao,
     modelo,
     telefone,
 
   } = req.body;
 
-  await sql`INSERT INTO pedidos (nome, descricao_problema, tipoeletronico, modelo, telefone, valor) VALUES (${nome}, ${descricao_problema}, ${tipoeletronico}, ${modelo}, ${telefone},0)`;
+  await sql`INSERT INTO pedidos (nome, descricao, tipoeletronico, modelo, telefone, valor) VALUES (${nome}, ${descricao}, ${tipoeletronico}, ${modelo}, ${telefone},0)`;
   if (res.status(201)) {
     return res.status(201).json("Pedido criado com sucesso");
   }
