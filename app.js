@@ -18,14 +18,6 @@ app.get("/pedidos", async (req, res) => {
   return res.status(200).json(pedidos);
 });
 
-// Rota para detalhes de um curso específico
-
-app.get("/pedidos/:id", async (req, res) => {
-  const { id } = req.params;
-
-  const curso = await sql`SELECT * FROM pedidos WHERE id_pedido = ${id}`;
-}
-)
 // Login de usuário
 app.post("/usuarios/login", async (req, res) => {
   const { email, senha } = req.body;

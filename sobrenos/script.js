@@ -6,6 +6,6 @@ inicio.addEventListener('click', () => {
 });
 
 concerto.addEventListener('click', () => {
-    window.location.replace("../conceto/conceto.html");
+    window.location.replace("../concerto/conserto.html");
 });
 
