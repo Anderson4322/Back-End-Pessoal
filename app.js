@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Rota para trazer todos os cursos
+// Rota para trazer todos os usuarios
 app.get("/usuarios", async (req, res) => {
   const usuarios = await sql`SELECT * FROM usuarios`;
   return res.status(200).json(usuarios);
@@ -15,6 +15,11 @@ app.get("/usuarios", async (req, res) => {
 //Mostrando pedidos
 app.get("/pedidos", async (req, res) => {
   const pedidos = await sql`SELECT * FROM pedidos`;
+  return res.status(200).json(pedidos);
+});
+app.get("/pedidos/:id", async (req, res) => {
+  const { id } = req.params;
+  const pedidos = await sql`SELECT * FROM pedidos WHERE id_pedido = ${id}`;
   return res.status(200).json(pedidos);
 });
 
@@ -83,14 +88,14 @@ app.post("/cad_pedidos", async (req, res) => {
 // Solicitar certificado
 
 
-app.put("/comentario/:id", async (req, res) => {
-  const { id } = req.params;
-  const { comentario } = req.body;
+// app.put("/comentario/:id", async (req, res) => {
+//   const { id } = req.params;
+//   const { comentario } = req.body;
 
-  await sql`update pedidos set comentario = ${comentario} where id_pedido = ${id}`;
+//   await sql`update pedidos set comentario = ${comentario} where id_pedido = ${id}`;
 
-  return res.status(201).json("comentario adicionado");
-});
+//   return res.status(201).json("comentario adicionado");
+// });
 
 // Deletar produto
 app.delete("/deletar/:id", async (req, res) => {
