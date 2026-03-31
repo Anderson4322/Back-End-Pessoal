@@ -439,10 +439,32 @@ button {
   transform: scale(1.2)
 }
 #span{
-  padding: 20px;
+  padding: 25px;
   height: 200px;
   border-radius: 10px;
   background-color: #e6e6e6;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  margin: 45vh;
+  margin-left: 65vh;
+  margin-top: 40vh;
+}
+#closeSpan{
+  background-color: #ff0404;
+  color: white;
+  width: 40px;
+  padding: 10px;
+  cursor: pointer;
+}
+#closeSpan:hover{
+  background-color: #b30000;
+  transition: background-color 0.3s;
+}
+#titulo_span{
+  color: #0b1fa3;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#text_span{
+  text-align: center;
+  color: #333;
 }

@@ -2,6 +2,11 @@
 const btnSobre = document.querySelector('#sobrenos');
 const btnLogout = document.querySelector('#btn_logout');
 const concerto = document.querySelector('#os');
+const btn_admin = document.querySelector('#btn_adm');
+
+btn_admin.addEventListener('click', () => {
+    window.location.replace("../admin/index.html"); 
+});
 
 
 btnSobre.addEventListener('click', () => {
@@ -35,18 +40,25 @@ btnLogout.addEventListener('click', () => {
     window.location.href = "../login/index.html";
   });
 
-  const h5 = document.querySelector("h5");
-  h5.appendChild(nome);
+  const h4 = document.querySelector("h4");
+  h4.appendChild(nome);
 
   const nomeUsuario = localStorage.getItem("nome");
+  const nivel = localStorage.getItem("nivel");
   
-  if (nomeUsuario) {
-    h5.textContent = `Bem vindo usuário: ${nomeUsuario}`;
+  if (nomeUsuario && nivel == 1) {
+    h4.textContent = `Bem vindo usuário: ${nomeUsuario}`;
     cadastro.remove();
     login.remove();
+    btn_admin.remove();
     
+  }else if (nivel == 2) {
+    h4.textContent = `Bem vindo administrador: ${nomeUsuario}`;
+    cadastro.remove();
+    login.remove();
   }
   else {
     nome.textContent = "Bem-vindo, visitante";
     btnLogout.remove()
+    btn_admin.remove();
   }

@@ -1,8 +1,9 @@
-//modal
+//selecionando elementos do DOM
 const openModal = document.querySelector("#openModal");
 const closeModal = document.querySelector("#closeModal");
 const modal = document.querySelector("#modal");
 
+//abrindo e fechando modal
 openModal.addEventListener("click", () => {
   modal.showModal();
 });
@@ -34,7 +35,8 @@ window.addEventListener("load", async () => {
     
     
    const excluir = document.createElement("button");
-    
+
+    //deletar usuário
  excluir.addEventListener("click", async () => {
       console.log(usuario.id_usuario);
       const resposta = await fetch(
@@ -113,10 +115,11 @@ window.addEventListener("load", async () => {
 
 const conteudo = document.querySelector("#show_pedido");
 
+//criando cards para mostrar os pedidos
 window.addEventListener("load", async () => {
   const produto = await fetch("http://localhost:3000/pedidos");
   const usuario = await produto.json();
-  
+
   usuario.map((p) => {
     const card = document.createElement("main");
     card.className = "pedidos";
@@ -125,23 +128,37 @@ window.addEventListener("load", async () => {
    
     const nome = document.createElement("h3")
     nome.textContent = `Nome: ${p.nome}`;
+    nome.style.fontSize = "24px";
     
     const descricao = document.createElement("h2")
     descricao.textContent = `Descrição: ${p.descricao}`;
+    descricao.style.fontSize = "15px";
+    descricao.style.marginBottom = "5px";
+    descricao.style.marginTop = "5px";
 
     const tipo_eletronico = document.createElement("p")
     tipo_eletronico.textContent = `Tipo de Eletrônico: ${p.tipoeletronico}`;
+    tipo_eletronico.style.marginBottom = "4px";
+    tipo_eletronico.style.fontWeight = "bold";
 
     const modelo = document.createElement("p")
+    modelo.style.marginBottom = "4px";
+    modelo.style.marginTop = "4px";
+    modelo.style.fontWeight = "bold";
     modelo.textContent = `Modelo: ${p.modelo}`;
 
     const numero_contato = document.createElement("p")
+    numero_contato.style.marginTop = "4px";
+    numero_contato.style.fontWeight = "bold";  
     numero_contato.textContent = `Número de Contato: ${p.telefone}`;
 
     const valor = document.createElement("p")
+    valor.style.color = "green";
+    valor.style.marginTop = "10px";
+    valor.style.fontWeight = "bold";
     valor.textContent = `Valor: R$${p.valor}`;
 
-
+//criando botões de editar e excluir pedido
     const editar = document.createElement("button");
     editar.textContent = "✏️";
     editar.style.width = "5vh";
@@ -149,7 +166,7 @@ window.addEventListener("load", async () => {
     editar.id = "editar";
 
 
-    
+    //editando pedido
     editar.addEventListener('click', async()=>{
         const nome = prompt("Digite o novo nome do usuário:", p.nome);
         const descricao = prompt("Digite o novo email do usuário:", p.descricao);
@@ -181,10 +198,12 @@ window.addEventListener("load", async () => {
         }
     })
 
+//deletar pedido
     const excluir = document.createElement("button");
-    excluir.textContent = "🗑️";
+    excluir.textContent = "❌";
     excluir.style.width = "5vh";
     excluir.style.height = "5vh";
+    
     excluir.id = "excluir";
 
     excluir.addEventListener('click', async()=>{
@@ -223,20 +242,22 @@ window.addEventListener("load", async () => {
   //   `
   // });
 })
+
 const botao_sair = document.querySelector("#sair");
 
+//mostrando nome do usuário logado
 const nome = document.createElement("p");
 const h2 = document.querySelector("h2");
 h2.appendChild(nome);
 
 const nomeUsuario = localStorage.getItem("nome");
-const tipoConta = localStorage.getItem("tipoconta");
+
 
 if (nomeUsuario) {
-  nome.textContent = `${nomeUsuario}`;
+  nome.textContent = `Bem vindo administrador: ${nomeUsuario}`;
 }
 else {
-  nome.textContent = "Bem-vindo, visitante";
+  nome.textContent = "Bem-vindo, Admin!";
   sair.remove()
 }
 //sair
