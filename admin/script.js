@@ -31,7 +31,6 @@ window.addEventListener("load", async () => {
 
     const email = document.createElement("p")
     email.textContent = `Email: ${usuario.email}`;
-
     
     
    const excluir = document.createElement("button");

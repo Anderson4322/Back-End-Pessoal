@@ -37,7 +37,7 @@ btnLogout.addEventListener('click', () => {
 
   const login = document.querySelector("#login");
   login.addEventListener("click", () => {
-    window.location.href = "../login/index.html";
+    window.location.replace("../login/index.html")
   });
 
   const h4 = document.querySelector("h4");
@@ -46,19 +46,26 @@ btnLogout.addEventListener('click', () => {
   const nomeUsuario = localStorage.getItem("nome");
   const nivel = localStorage.getItem("nivel");
   
-  if (nomeUsuario && nivel == 1) {
+  if (nivel == 1) {
     h4.textContent = `Bem vindo usuário: ${nomeUsuario}`;
     cadastro.remove();
     login.remove();
     btn_admin.remove();
     
-  }else if (nivel == 2) {
+  }
+  else if (nivel == 3) {
     h4.textContent = `Bem vindo administrador: ${nomeUsuario}`;
     cadastro.remove();
     login.remove();
   }
+  else if (nivel == 2) {
+    h4.textContent = `Bem vindo Técnico: ${nomeUsuario}`;
+    cadastro.remove();
+    login.remove();
+    btn_admin.remove();
+  }
   else {
     nome.textContent = "Bem-vindo, visitante";
-    btnLogout.remove()
+    btnLogout.remove();
     btn_admin.remove();
   }

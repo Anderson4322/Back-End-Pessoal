@@ -149,9 +149,3 @@ btnLogar.addEventListener("click", () => {
 });
 btnLogar.style.pointerEvents = "none";
 
-
-const nivel = localStorage.getItem("nivel");
-
-if (nivel == 2) {
-  console.log("Bem vindo Tecnico");
-}

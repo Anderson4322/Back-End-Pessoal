@@ -12,11 +12,13 @@ app.get("/usuarios", async (req, res) => {
   const usuarios = await sql`SELECT * FROM usuarios`;
   return res.status(200).json(usuarios);
 });
+
 //Mostrando pedidos
 app.get("/pedidos", async (req, res) => {
   const pedidos = await sql`SELECT * FROM pedidos`;
   return res.status(200).json(pedidos);
 });
+
 app.get("/pedidos/:id", async (req, res) => {
   const { id } = req.params;
   const pedidos = await sql`SELECT * FROM pedidos WHERE id_pedido = ${id}`;
@@ -42,7 +44,8 @@ app.post("/usuarios/login", async (req, res) => {
 // Cadastro de usuário Admin
 
 app.post('/admin/cadastro', async (req, res) => {
-  const { nome, email, senha,endereco, nivel} = req.body;
+  try{
+    const { nome, email, senha,endereco, nivel} = req.body;
 
   const hash = await CriarHash(senha, 10)
 
@@ -50,7 +53,9 @@ app.post('/admin/cadastro', async (req, res) => {
 
   if (res.status(200)) {
     return res.status(200).json("Usuário criado com sucesso");
-  } else {
+  }
+
+}catch {
     return res.status(500).json("Erro ao cadastrar usuário");
   }
 })
@@ -85,20 +90,19 @@ app.post("/cad_pedidos", async (req, res) => {
   return res.status(500).json("Erro ao criar pedido");
 });
 
-// Solicitar certificado
-
+// Comentario do tecnico
 
 // app.put("/comentario/:id", async (req, res) => {
 //   const { id } = req.params;
 //   const { comentario } = req.body;
 
-//   await sql`update pedidos set comentario = ${comentario} where id_pedido = ${id}`;
+//   await sql`insert into comentario set comentario = ${comentario} where id_comentario = ${id}`;
 
 //   return res.status(201).json("comentario adicionado");
 // });
 
 // Deletar produto
-app.delete("/deletar/:id", async (req, res) => {
+app.delete("/deletar_user/:id", async (req, res) => {
   try {
     const { id } = req.params;
     await sql`delete from usuarios where id_usuario = ${id} `;
@@ -108,7 +112,7 @@ app.delete("/deletar/:id", async (req, res) => {
   }
 });
 //deletar pedido
-app.delete("/del_pedido/:id", async (req, res) => {
+app.delete("/deletar_pedido/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
