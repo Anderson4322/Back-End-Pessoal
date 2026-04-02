@@ -14,7 +14,7 @@ closeModal.addEventListener("click", () => {
 //mostrando usuários
 const div_vazia = document.querySelector("#vazia");
 window.addEventListener("load", async () => {
-  const produto = await fetch("http://localhost:3000/usuarios");
+  const produto = await fetch(`${api}usuarios`);
   const usuario = await produto.json();
   
   usuario.map((usuario) => {
@@ -40,7 +40,7 @@ window.addEventListener("load", async () => {
  excluir.addEventListener("click", async () => {
       console.log(usuario.id_usuario);
       const resposta = await fetch(
-        `http://localhost:3000/deletar/${usuario.id_usuario}`,
+        `${api}deletar/${usuario.id_usuario}`,
         {
           method: "DELETE",
           headers: {
@@ -75,7 +75,7 @@ window.addEventListener("load", async () => {
         const endereco = prompt("Digite o novo endereço do usuário:", usuario.endereco);
         const nivel = prompt("Digite o novo nível do usuário:", usuario.nivel);
 
-        const resposta = await fetch(`http://localhost:3000/alt_user/${usuario.id_usuario}`, {
+        const resposta = await fetch(`${api}alt_user/${usuario.id_usuario}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -117,7 +117,7 @@ const conteudo = document.querySelector("#show_pedido");
 
 //criando cards para mostrar os pedidos
 window.addEventListener("load", async () => {
-  const produto = await fetch("http://localhost:3000/pedidos");
+  const produto = await fetch(`${api}pedidos`);
   const usuario = await produto.json();
 
   usuario.map((p) => {
@@ -175,7 +175,7 @@ window.addEventListener("load", async () => {
         const telefone = prompt("Digite o novo telefone do usuário:", p.telefone);
         const valor = prompt("Digite o novo nível do usuário:", p.valor);
 
-        const resposta = await fetch(`http://localhost:3000/alterar/${p.id_produtos}`, {
+        const resposta = await fetch(`${api}alterar/${p.id_produtos}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -207,7 +207,7 @@ window.addEventListener("load", async () => {
     excluir.id = "excluir";
 
     excluir.addEventListener('click', async()=>{
-        const resposta = await fetch(`http://localhost:3000/del_pedido/${p.id_produtos}`, {
+        const resposta = await fetch(`${api}/del_pedido/${p.id_produtos}`, {
             method: "DELETE", 
             headers: {
                 "Content-Type": "application/json"            }

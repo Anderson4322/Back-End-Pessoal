@@ -1,3 +1,4 @@
+
 const openButtons = document.querySelector('#abrirMod'); 
 const modal = document.querySelector("#modal-1"); 
 const nomeUsuario = localStorage.getItem("nome");
@@ -39,7 +40,7 @@ document.querySelector('form').addEventListener("submit", async (e) => {
   const telefone = document.querySelector("#telefone").value;
   // const comentario = document.querySelector("#comentario").value;
   console.log(nome, descricao, tipoeletronico, modelo);
-  const resposta = await fetch("http://localhost:3000/cad_pedidos", {
+  const resposta = await fetch(`${api}cad_pedidos`, {
     method: "POST",
     headers: { "Content-Type": "application/JSON" },
     body: JSON.stringify({
@@ -75,7 +76,7 @@ if(!nomeUsuario){
 const conteudo = document.querySelector(".grade-posts");
 
 window.addEventListener("load", async () => {
-  const resposta = await fetch("http://localhost:3000/pedidos");
+  const resposta = await fetch(`${api}pedidos`);
   const produto = await resposta.json();
 
   produto.map((p) => {

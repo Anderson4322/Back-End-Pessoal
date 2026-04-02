@@ -4,7 +4,7 @@
     e.preventDefault();
     const email = document.querySelector("#email").value
     const senha = document.querySelector("#senha").value
-    const resposta = await fetch("http://localhost:3000/usuarios/login", {
+    const resposta = await fetch(`${api}usuarios/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,9 +21,9 @@
       localStorage.setItem("nome", usuarios.nome);
       localStorage.setItem("nivel", usuarios.nivel);
       if (usuarios.nivel == 3) {
-        return (window.location.href = "../admin/index.html");
+        return window.location.replace("../admin/index.html");
       }
-      return (window.location.href = "../Homepage/pagina_inicial.html");
+      return window.location.replace("../Homepage/pagina_inicial.html");
     } else {
       alert("Usuario ou senha incorretos");
     }

@@ -6,7 +6,7 @@ document.querySelector("form").addEventListener("submit", async (e) => {
   const endereco = document.querySelector("#endereco").value;
 
   const telefone = document.querySelector("#telefone").value;
-  const resposta = await fetch("http://localhost:3000/cadastro/user", {
+  const resposta = await fetch(`${api}cadastro/user`, {
 
     method: "POST",
     headers: {
