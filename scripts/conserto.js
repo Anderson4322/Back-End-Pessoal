@@ -64,7 +64,7 @@ const span = document.querySelector("#span");
 const closeSpan = document.querySelector("#closeSpan");
 closeSpan.addEventListener("click", () => {
   span.close();
-  window.location.replace("../login/index.html");
+  window.location.replace("../html/login.html");
 });
 
 if(!nomeUsuario){
@@ -134,18 +134,18 @@ console.log(p);
 
 const btnSair = document.querySelector("#btn-sair");
 btnSair.addEventListener("click", () => {
-  window.location.href = "../Homepage/pagina_inicial.html";
+  window.location.href = "../html/pagina_inicial.html";
 });
 
 const btnCadastrar = document.querySelector("#cadastrar");
 
 btnCadastrar.addEventListener("click", () => {
-  window.location.href = "../cadastro/cadastro.html";
+  window.location.href = "../html/cadastro.html";
 });
 btnCadastrar.style.pointerEvents = "none";
 const btnLogar = document.querySelector("#logar");
 btnLogar.addEventListener("click", () => {
-  window.location.href = "../login/index.html";
+  window.location.href = "../html/login.html";
 });
 btnLogar.style.pointerEvents = "none";
 

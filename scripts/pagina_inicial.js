@@ -5,15 +5,15 @@ const concerto = document.querySelector('#os');
 const btn_admin = document.querySelector('#btn_adm');
 
 btn_admin.addEventListener('click', () => {
-    window.location.replace("../admin/index.html"); 
+    window.location.replace("../html/adm.html"); 
 });
 
 
 btnSobre.addEventListener('click', () => {
-    window.location.replace("../sobrenos/sobrenos.html"); 
+    window.location.replace("../html/sobrenos.html"); 
 });
 concerto.addEventListener('click', () => {
-    window.location.replace("../concerto/conserto.html");
+    window.location.replace("../html/conserto.html");
 });
 
 
@@ -21,7 +21,7 @@ btnLogout.addEventListener('click', () => {
     localStorage.clear();
     alert("Sessão encerrada com sucesso!");
 
-    window.location.replace("../login/index.html"); 
+    window.location.replace("../html/login.html"); 
 });
 
 
@@ -32,12 +32,12 @@ btnLogout.addEventListener('click', () => {
     nome.style.marginRight = "20px";
   const cadastro = document.querySelector("#cadastro");
   cadastro.addEventListener("click", () => {
-    window.location.href = "../cadastro/index.html";
+    window.location.href = "../html/cadastro.html";
   });
 
   const login = document.querySelector("#login");
   login.addEventListener("click", () => {
-    window.location.replace("../login/index.html")
+    window.location.replace("../html/login.html")
   });
 
   const h4 = document.querySelector("h4");

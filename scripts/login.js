@@ -21,9 +21,9 @@
       localStorage.setItem("nome", usuarios.nome);
       localStorage.setItem("nivel", usuarios.nivel);
       if (usuarios.nivel == 3) {
-        return window.location.replace("../admin/index.html");
+        return window.location.replace("../html/adm.html");
       }
-      return window.location.replace("../Homepage/pagina_inicial.html");
+      return window.location.replace("../html/pagina_inicial.html");
     } else {
       alert("Usuario ou senha incorretos");
     }

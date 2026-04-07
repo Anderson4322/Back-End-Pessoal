@@ -38,8 +38,7 @@ window.addEventListener("load", async () => {
     //deletar usuário
  excluir.addEventListener("click", async () => {
       console.log(usuario.id_usuario);
-      const resposta = await fetch(
-        `${api}deletar/${usuario.id_usuario}`,
+      const resposta = await fetch(`${api}deletar_user/${usuario.id_usuario}`,
         {
           method: "DELETE",
           headers: {
@@ -50,15 +49,16 @@ window.addEventListener("load", async () => {
       if (resposta.status == 200) {
         window.location.reload();
         return alert("Usuario deletado!");
-      } else {
-        return alert("Erro ao deletar usuario.");
-      }
+      } 
+        else {
+          return alert("Erro ao deletar usuário!");
+        }
     });
 
     excluir.textContent = "🗑️";
     excluir.style.width = "5vh";
     excluir.style.height = "5vh";
-    excluir.id = "excluir";
+    excluir.id = "excluir_user";
 
 
         const editar_user = document.createElement("button");
@@ -66,6 +66,7 @@ window.addEventListener("load", async () => {
     editar_user.style.width = "5vh";
     editar_user.style.height = "5vh";
     editar_user.id = "editar_user";
+
 
     //editando de usuário
         editar_user.addEventListener('click', async()=>{
@@ -203,10 +204,10 @@ window.addEventListener("load", async () => {
     excluir.style.width = "5vh";
     excluir.style.height = "5vh";
     
-    excluir.id = "excluir";
+    excluir.id = "excluir_pedido";
 
     excluir.addEventListener('click', async()=>{
-        const resposta = await fetch(`${api}/del_pedido/${p.id_produtos}`, {
+        const resposta = await fetch(`${api}deletar_pedido/${p.id_produtos}`, {
             method: "DELETE", 
             headers: {
                 "Content-Type": "application/json"            }
@@ -263,7 +264,7 @@ else {
 
 botao_sair.addEventListener("click", () => {
   localStorage.clear();
-  window.location.href = "../login/index.html";
+  window.location.replace("../html/login.html")
 });
 
 //cadastro de usuário
@@ -276,7 +277,7 @@ document.querySelector("form").addEventListener('submit', async(e)=>{
   const endereco = document.querySelector("#endereco").value;
   const nivel = document.querySelector("#nivel").value;
 
-  const resposta = await fetch("http://localhost:3000/admin/cadastro", {
+  const resposta = await fetch(`${api}admin/cadastro`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -297,8 +298,8 @@ document.querySelector("form").addEventListener('submit', async(e)=>{
   }
 })
 
-const home = document.querySelector("#inicio  ");
+const home = document.querySelector("#inicio");
 home.addEventListener("click", () => {
-  window.location.replace("../Homepage/pagina_inicial.html");
+  window.location.replace("../html/pagina_inicial.html");
 })
 

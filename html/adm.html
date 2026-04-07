@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrativo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/adm.css">
 </head>
 
 <body>
@@ -34,12 +34,12 @@
                 <legend>Email:</legend>
                 <input type="email" id="email" required placeholder="Digite o email do usuario">
                 <legend>senha:</legend>
-                <input type="password" id="senha" required placeholder="Digite a senha do usuario">
+                <input type="password" id="senha" minlength="5" required placeholder="Digite a senha do usuario">
               
                 <legend>Endereço:</legend>
                 <input type="text" id="endereco" required placeholder="Digite seu endereço">
                     <legend>Nivel de acesso:</legend> 
-                    <input type="number" maxlength="1" id="nivel" required placeholder="Digite o nivel de acesso do usuario">  
+                    <input type="number" minlength="1" maxlength="1" id="nivel" required placeholder="Digite o nivel de acesso do usuario">  
                 <button type="submit" id="confirmar">Confirmar</button>
             </form>
 
@@ -61,8 +61,8 @@
                 
         </fieldset>
     </div>
-    <script src="../api.js"></script>
-    <script src="./script.js"></script>
+   <script src="../backend/api.js"></script>
+    <script src="../scripts/adm.js"></script>
 </body>
 
 </html>

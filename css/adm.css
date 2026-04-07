@@ -175,3 +175,14 @@ input:focus, select:focus {
   transition: transform 0.3s ease;
   cursor: pointer;
 }
+#editar_user, #excluir_user {
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#editar_user:hover, #excluir_user:hover {
+  transition: 0.2s;
+  background-color: #09137a;
+
+}
